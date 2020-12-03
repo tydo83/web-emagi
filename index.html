@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Web Emagi</title>
+        <link href="./emoji.png" rel="shortcut icon" type="image/jpg"/>
+    </head>
+    <body>
+        <input type="text" id="emagi-input">
+        <button id="submit-button">Submit</button>
+        <form>
+            <p>How would you like to translate?</p>
+            <div class="radio-button-section">
+                <input type="radio" name="translation-section" class="translation-section radio-button" value="encode" id="encode" checked>
+                <label for="encode">Encode</label>
+            </div>
+            <div class="radio-button-section">
+                <input type="radio" name="translation-section" value="translate" class="translation-section radio-button" id="translate">
+                <label for="translate">Translate</label>
+            </div>
+            <div class="radio-button-section">
+                <input type="radio" name="translation-section" value="madlib" class="translation-section radio-button" id="madlib">
+                <label for="madlib">Madlib</label>
+            </div>
+            <div class="radio-button-section">
+                <input type="radio" name="translation-section" value="search" class="translation-section radio-button" id="search">
+                <label for="search">Search</label>
+            </div>
+            <div class="radio-button-section">
+                <input type="radio" name="translation-section" value="random" class="translation-section radio-button" id="random">
+                <label for="random">Random</label>
+            </div>
+
+            <h1 id="results">&nbsp;</h1>
+
+            <script src="./emojis.js"></script>
+            <script src="./encode.js"></script>
+            <script src="./random-element.js"></script>
+            <script src="./get-category.js"></script>
+            <script src="./translate.js"></script>
+            <script src="./madlib.js"></script>
+            <script src="./search.js"></script>
+            <script src="./main.js"></script>
+    </body>
+</html>
