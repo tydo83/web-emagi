@@ -26,11 +26,11 @@ const emojiFunctions = () => {
         case 'search':
             const searchArray = search(userInput);
             if(searchArray.length > 0) {
-                let searchedList = document.createElement('li')
+                const searchedList = document.createElement('p')
                 for(const result of searchArray) {
                     searchedList.append(result.symbol);
                 }
-                resultOutput.innerText = searchedList;
+                resultOutput.append(searchedList);
             } else {
                 resultOutput.innerText = "Your search returned no emojis."
             }
