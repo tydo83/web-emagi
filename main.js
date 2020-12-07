@@ -24,13 +24,14 @@ const emojiFunctions = () => {
             resultOutput.innerText = madlib(userInput);
             break;
         case 'search':
+            resultOutput.innerText = "";
             const searchArray = search(userInput);
             if(searchArray.length > 0) {
-                const searchedList = document.createElement('p')
                 for(const result of searchArray) {
-                    searchedList.append(result.symbol);
+                    const searchedList = document.createElement('p')
+                    searchedList.innerText = result.symbol;
+                    resultOutput.append(searchedList);
                 }
-                resultOutput.append(searchedList);
             } else {
                 resultOutput.innerText = "Your search returned no emojis."
             }
