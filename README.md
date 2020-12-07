@@ -21,9 +21,9 @@ Let's start with `encode`.
 
 If you're not familiar with the term, "radio buttons" are mutually exclusive buttons. In this case, there's one for every feature of our app. Let's use them to let the user select which feature to use!
 
-* Query ALL the radio buttons using `querySelectorAll` and the query `.radio-button`, one of the classes set on each of the buttons in our `index.html` file. This wil returns an array-like set of elements. If you access those elements at index 0, you'll get the first one, at 1 the next, and so on. Let's loop!
+* Query ALL the radio buttons using `querySelectorAll` and the query `.radio-button`, one of the classes set on each of the buttons in our `index.html` file. This will return an array-like set of elements. If you access those elements at index 0, you'll get the first one, at 1 the next, and so on. Let's loop!
 * Loop through the elements (a `for of` will do it, no need for `i`!), and if any of their `.checked` property is true, that's the one the user has selected. (If you check the HTML file or the DOM, you'll see that one has the `checked` property by default. If you change one, you can watch the DOM change to match.)
-* Like input boxes, radio buttons have a `.value` property, which is jsut the string in the `value` attribute in their tag. (Check `index.html` to see!) In our loop, when we're at the radio button that has the `checked` proeprty set to `true`, grab the `.value` of that particular radio button and save it in a variable outside the loop somewhere. (If you declare the variable in the loop, it will be scoped to the loop and disappear afterwards!)
+* Like input boxes, radio buttons have a `.value` property, which is just the string in the `value` attribute in their tag. (Check `index.html` to see!) In our loop, when we're at the radio button that has the `checked` property set to `true`, grab the `.value` of that particular radio button and save it in a variable outside the loop somewhere. (If you declare the variable in the loop, it will be scoped to the loop and disappear afterwards!)
     * Instead of saving it in a variable outside the loop, we COULD write a helper function that does this looping-through-the-elements code, and have it return the `.value` of the checked item, which you could then store in a variable. Either way!
 * Now write some `switch` or `if-else` logic to decide between printing the result of running the user's input through `translate` or `encode`, depending on which item was checked (which should, again, be stored as a string in the contents of your variable!)
 * Test that you c an click the "Encode" radio button and get an emoji for each letter, and then try clicking the "Translate" button and hitting submit. Try the text "I heart phone" in your input box--you should get a heart and a phone emoji!
@@ -53,4 +53,12 @@ For search, we'll want to print every single emoji that matches the search crite
 ### Stretch Goals
 
 * Change the event listener so that it fires when they type something. You'll want to add it as an event listener on the input box, not the button. But what event? That's up to you to figure out! If you get this one done, you can get rid of the submit button, since it's totally unneeded!
-* More coming soon!
+* Let's add some help text for the user to explain these five fabulous functions. But with the twist of only showing the help text when they want it, hiding it otherwise. We'll make a collapsible html element with a toggle to show or hide it.
+    * You'll need a class for this that will make an element invisible, giving it the rule to make `display` be `none`. This will take it right off the DOM, so things will move up to take its place when it's no longer there, and move down to accommodate its space whenever we remove that rule.
+    * Now make a `ul` somewhere near the top of our page. Inside the `ul`, make an `li` for each of our functions, explaining what it does. Give the `ul` the class we just defined, and it should disappear, moving everything else up.
+    * Above that `ul`, make an `a` tag that links nowhere (you could style it differently, maybe as a `button` tag even, but an `a` tag makes it clear it's clickable). Give it an `id` of your choosing.
+    * What we're going to do is make it so that when they click that `a`, the `ul` loses that class. That way, it will show the help section. If they click it again, it will gain that class again, making it disappear once more. Let's jump over to our `main.js` and make it happen!
+    * Add an event listener function that happens when the `a` tag is clicked.
+    * In that function, query your `ul` and save it as a variable.
+    * Now check if it has your hide-the-element class from your CSS using the `className` property (you'll have to do a bit of research on this one!). If it does, take it away. If it doesn't, add it.
+    * And you're done!
